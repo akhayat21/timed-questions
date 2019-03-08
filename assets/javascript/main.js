@@ -15,9 +15,9 @@ var questionCount = 0;
 var right = 0;
 var wrong = 0;
 var unanswered = 0;
-var cdClock = 5;
+var cdClock = 24;
 var clock;
-var timeOut = 10;
+
 
 
 
@@ -27,11 +27,12 @@ window.onload = function () {
     //console.log("loaded page")
     initSetup();
 
-    document.getElementById("start").onclick = start;
+    
 }
 
 
 function initSetup() {
+    clearContainer()
     //created a button with id start and innerhtml text Start
     var button = document.createElement("button");
     button.id = "start";
@@ -41,7 +42,7 @@ function initSetup() {
     var body = document.getElementsByTagName("div")[0];
     body.appendChild(button);
 
-
+    document.getElementById("start").onclick = start;
     //when button is clicked, trivia game will start
 }
 
@@ -63,13 +64,13 @@ function start() {
 }
 
 function qPageSetup() {
-    clearContainer()
+    clearContainer();
     console.log("qPageSetup function run");
     
 
     var timer = document.createElement("div");
     timer.id = "timer";
-    timer.innerHTML = "Counterdown timer: " + cdClock;
+    timer.innerHTML = "Shot Clock: " + cdClock;
 
     var body = document.getElementsByTagName("div")[0];
     body.appendChild(timer);
@@ -85,11 +86,12 @@ function qPageSetup() {
         choices.id = i;
         body.appendChild(choices);
     }
+    
     qPage();
 }
 
 function aPageSetup() {
-    clearContainer()
+    clearContainer();
     console.log("aPageSetup function run");
     var body = document.getElementsByTagName("div")[0];
 
@@ -112,7 +114,7 @@ function aPageSetup() {
 }
 
 function resultPageSetup(){
-    clearContainer()
+    clearContainer();
     var body = document.getElementsByTagName("div")[0];
 
     var title = document.createElement("div");
@@ -130,6 +132,12 @@ function resultPageSetup(){
     var timeOut = document.createElement("div");
     timeOut.innerHTML = "Unanswered Answers: "+unanswered;
     body.appendChild(timeOut);
+
+    var button = document.createElement("button");
+    button.id = "reset";
+    button.innerHTML = "Rematch!";
+    body.appendChild(button);
+    document.getElementById("reset").onclick = reset;
 
 }
 
@@ -154,7 +162,8 @@ function qPage() {
     }
 
 
-
+    cdClock = 24;
+    timer.innerHTML = "Shot Clock: " + cdClock;
     timers();
 
 
@@ -237,7 +246,7 @@ function timers() {
 
     clock = setTimeout(() => {
         cdClock--;
-        timer.innerHTML = "Counterdown timer: " + cdClock;
+        timer.innerHTML = "Shot Clock: " + cdClock;
         if (cdClock > 0) {
             timers();
         } else {
@@ -258,5 +267,13 @@ function checkIfOver(){
     }
 }
 
+function reset(){
+questionCount = 0;
+right = 0;
+wrong = 0;
+unanswered = 0;
+cdClock = 24;
+initSetup();
+}
 
 
