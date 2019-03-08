@@ -1,0 +1,60 @@
+html,body{
+    height:100%;
+    margin: 0px;
+    background-image: url("https://wallpapercave.com/wp/wp2939843.jpg");
+    background-size: cover;
+
+}
+
+#container{
+    
+    width: 800px;
+    height: 80%;
+    margin: 0px auto;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    border: 2px solid black;
+}
+
+#start{
+    background-color: #e0082e;
+    border: 2px solid blue;
+    width: 260px;
+    padding: 10px;
+    margin-left:  auto;
+    margin-right:  auto;
+    text-align: center;
+    position: relative;
+    top: 75%;
+    
+}
+#question{
+    margin: 20px;
+    font-size: 42px;
+}
+
+.choice{
+    background-color: #e0082e;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 260px;
+    padding: 10px;
+    margin: 10px 20px 10px 50px;    
+    text-align: center;
+    float: left;
+    clear:both;
+}
+
+#start:hover,.choice:hover{
+    background-color: #411aba;  
+    border: 2px solid #e0082e;
+    color: white;
+}
+
+#timer{
+    margin: 20px;
+    font-size: 42px;
+}
+
