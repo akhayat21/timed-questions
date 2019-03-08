@@ -12,11 +12,11 @@ html,body{
     width: 800px;
     height: 80%;
     margin: 0px auto;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     text-align: center;
     position: absolute;
     bottom: 10%;
-    left: 0%;
+    left: 5%;
     /* border: 2px solid black; */
 }
 
