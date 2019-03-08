@@ -1,15 +1,45 @@
 //object with three properties
 
 var trivia = {
-    question: ["question1", "question2", "question3"],
+    question: ["What was the first team to win both the Slam Dunk contest and Three-point shootout in the same year?", 
+    "What team won the 2007-08 NBA Championship", 
+    "What was the original name of the NBA?", 
+    "What team has the best record in one season?", 
+    "Who won the most NBA Finals MVP's?", 
+    "What player has the most career personal fouls?", 
+    "What team holds the record for the most consecutive NBA titles?", 
+    "What is James Harden's number?", 
+    "What was the original name of the Denver Nuggets?", 
+    "What team won the first ever NBA game?"],
     //2 dimensional array
     choices: [
-        ["choice11", "choice21", "choice31", "choice41"],
-        ["choice12", "choice22", "choice32", "choice42"],
-        ["choice13", "choice23", "choice33", "choice43"],
+        //Happy Wes?
+        //    ||
+        //    ||    
+        //    \/
+        ["Philadelphia 76ers", "Miami Heat", "Golden State Warriors", "Milwuakee Bucks"],
+        ["LA Lakers", "Dallas Mavericks", "San Antonio Spurs", "Boston Celtics"],
+        ["NBL", "NBAA", "BAA", "ABA"],
+        ["Chicago Bulls", "Golden State Warriors", "Miami Heat", "LA Lakers"],
+        ["Magic Johnson", "Michael Jordan", "LeBron James", "Kareem Abdul-Jabbar"],
+        ["Kareem Abdul-Jabbar", "Hakeem Olajuwon", "Shaquille O'Neal", "Wilt Chamberlain"],
+        ["Boston Celtics", "Chicago Bulls", "Detriot Pistons", "LA Lakers"],
+        ["07", "13", "15", "03"],
+        ["Denver Rockets", "Denver Bullets", "Denver Rockies", "Denver Hawks"],
+        ["Boston Celtics", "Toronto Huskie", "Philadelphia Warriors", "New York Knicks"],
     ],
-    answer: ["choice11", "choice22", "choice33"],
-    gif: ["gif1", "gif1", "gif1"]
+    answer: ["Miami Heat", "Boston Celtics", "BAA", "Golden State Warriors", "Kareem Abdul-Jabbar", 
+    "Kareem Abdul-Jabbar", "Boston Celtics", "13", "Denver Rockets", "New York Knicks",],
+    gif: ["https://media.giphy.com/media/l41YboIeRy2b1EWty/giphy.gif", 
+    "https://media.giphy.com/media/xUA7bi4fSQm6YnT9le/giphy.gif", 
+    "https://media.giphy.com/media/q22mzwfrCwzny/giphy.gif", 
+    "https://media1.giphy.com/media/DiMnfScJ4ZjoI/giphy.gif?cid=3640f6095c81f2ee4b77646e59a35eb3", 
+    "https://media.giphy.com/media/3o7btYShHZTbYTRy80/giphy.gif", 
+    "https://media0.giphy.com/media/9PyXQeQxH6rlNLVhAN/giphy.gif?cid=3640f6095c81f338364841762e794215",
+    "https://media.giphy.com/media/sQpl7yebgk3Pq/giphy.gif", 
+    "https://media.giphy.com/media/3oAt2dA6LxMkRrGc0g/giphy.gif", 
+    "https://media.giphy.com/media/3oz8xzv7AMHgOx4URq/giphy.gif", 
+    "https://media.giphy.com/media/VvjLPvqqMnlQc/giphy.gif",]
 }
 var questionCount = 0;
 var right = 0;
@@ -33,14 +63,23 @@ window.onload = function () {
 
 function initSetup() {
     clearContainer()
+    var body = document.getElementsByTagName("div")[0];
+    var triviaTitle = document.createElement("div");
+    triviaTitle.id = "trivia";
+    triviaTitle.innerHTML = "NBA Trivia";
+    body.appendChild(triviaTitle);
+    var triviaTitleTwo = document.createElement("div");
+    triviaTitleTwo.id = "triviatwo";
+    triviaTitleTwo.innerHTML = "Knock-Out!";
+    body.appendChild(triviaTitleTwo);
     //created a button with id start and innerhtml text Start
     var button = document.createElement("button");
     button.id = "start";
     button.innerHTML = "Start";
-
-    //moved the button to the div element
-    var body = document.getElementsByTagName("div")[0];
     body.appendChild(button);
+    //moved the button to the div element
+    
+    
 
     document.getElementById("start").onclick = start;
     //when button is clicked, trivia game will start
@@ -118,7 +157,7 @@ function resultPageSetup(){
     var body = document.getElementsByTagName("div")[0];
 
     var title = document.createElement("div");
-    title.innerHTML = "Game Ended";
+    title.innerHTML = "Game Over!";
     body.appendChild(title);
 
     var correct = document.createElement("div");
@@ -199,7 +238,8 @@ function incorrect() {
     console.log("incorrect function run");
     result.innerHTML = "Nope!";
     resultDesc.innerHTML = "The correct answer was "+trivia.answer[questionCount];
-    gifHolder.src = "assets/images/"+trivia.gif[questionCount]+".gif";
+    gifHolder.src = trivia.gif[questionCount];
+    //"assets/images/"+trivia.gif[questionCount]+".gif"
     questionCount++;
     setTimeout(() => {
         
@@ -214,7 +254,7 @@ function correct() {
     aPageSetup()
     console.log("correct function run");
     result.innerHTML = "Exactly!";
-    gifHolder.src = "assets/images/"+trivia.gif[questionCount]+".gif";
+    gifHolder.src = trivia.gif[questionCount];
     questionCount++;
     setTimeout(() => {
         
@@ -231,7 +271,7 @@ function noinput() {
     console.log("incorrect function run");
     result.innerHTML = "Time's Up!";
     resultDesc.innerHTML = "The correct answer was "+trivia.answer[questionCount];
-    gifHolder.src = "assets/images/"+trivia.gif[questionCount]+".gif";
+    gifHolder.src = trivia.gif[questionCount];
     questionCount++;
     setTimeout(() => {
         

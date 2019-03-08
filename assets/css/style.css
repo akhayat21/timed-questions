@@ -15,7 +15,7 @@ html,body{
     text-align: center;
     position: absolute;
     bottom: 10%;
-    left: 5%;
+    left: -3%;
     /* border: 2px solid black; */
 }
 
@@ -34,14 +34,22 @@ html,body{
     font-size: 42px;
     
 }
-
+#trivia{
+    font-size: 56px;
+}
+#triviatwo{
+    font-size: 60px;
+}
+#start{
+    margin: 150px;  
+}
 #reset{
-    padding: 30px;
+    margin: 30px;
 }
 #question{
     margin: 20px;
     font-family: 'Graduate', cursive;
-    font-size: 42px;
+    font-size: 36px;
     float: left;
     margin: 10px 20px 30px 120px;  
 }
@@ -70,5 +78,15 @@ html,body{
     margin: 20px;
     font-family: 'Graduate', cursive;
     font-size: 52px;
+}
+
+#result,#title{
+    font-size: 56px;
+    margin-bottom: 60px;
+}
+
+#resultDesc,#correct,#incorrect,#timeOut{
+    font-size: 38px;
+    margin: 20px;
 }
 
