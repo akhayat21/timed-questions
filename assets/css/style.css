@@ -12,6 +12,7 @@ html,body{
     width: 800px;
     height: 80%;
     margin: 0px auto;
+    margin-left: 50px;
     text-align: center;
     position: absolute;
     bottom: 10%;
